@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Input from "../../UI/Input";
 import classes from "./MealItemForm.module.css";
 
@@ -8,6 +8,7 @@ const MealItemForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+
     // pulling Input values through forwardRef on Input component
     // NB:This value is always a string
     const enteredAmount = amountInputRef.current.value;
@@ -24,6 +25,7 @@ const MealItemForm = (props) => {
       setAmountIsValid(false);
       return;
     }
+    console.log("passed test!!!");
     //pass the enteredAmountNumber to MealItem component via props
     props.onAddToCart(enteredAmountNumber);
   };
